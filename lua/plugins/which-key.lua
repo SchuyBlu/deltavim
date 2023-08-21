@@ -27,6 +27,7 @@ function M.config()
 		f = {
 			name = "Telescope",
 			f = { "<cmd>Telescope find_files<CR>", "Find files" },
+			e = { "<cmd>Telescope file_browser<CR>", "Explore files" }
 		},
 	}
 
