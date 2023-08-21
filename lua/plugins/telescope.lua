@@ -8,3 +8,14 @@ function M.config()
 	if not status then
 		return
 	end
+
+	local actions = require("telescope.actions")
+
+	telescope.setup({
+		defaults = {
+			path_display = {"smart"},
+		}
+	})
+end
+	
+return M
