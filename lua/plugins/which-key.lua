@@ -26,7 +26,7 @@ function M.config()
 	local mappings = {
 		f = {
 			name = "Telescope",
-			f = {"<cmd>Telescope find_files<CR>", "Find files"},
+			f = { "<cmd>Telescope find_files<CR>", "Find files" },
 		},
 	}
 
