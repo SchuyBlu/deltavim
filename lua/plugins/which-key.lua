@@ -66,8 +66,6 @@ function M.config()
 		g = {
 			name = "Git Commands",
 			s = { "<cmd>Neogit<CR>", "git status" },
-			j = { "<cmd>Gitsigns next_hunk<CR>", "View next hunk" },
-			k = { "<cmd>Gitsigns prev_hunk<CR>", "View prev hunk" }
 		}
 	}
 
