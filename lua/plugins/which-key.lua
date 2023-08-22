@@ -62,6 +62,10 @@ function M.config()
 			name = "Tab Pages",
 			n = { "<cmd>BufferLineMoveNext<CR>", "Move to the next tab" },
 			p = { "<cmd>BufferLineMovePrev<CR>", "Move the the previous tab" }
+		},
+		g = {
+			name = "Git Commands",
+			s = { "<cmd>Neogit<CR>", "git status" }
 		}
 	}
 
