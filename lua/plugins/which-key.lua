@@ -24,10 +24,11 @@ function M.config()
 	}
 
 	local mappings = {
+		c = { "<cmd>bdelete<CR>", "Close buffer" }, -- Close whatever buffer you're within
 		f = {
 			name = "File Handling",
 			f = { "<cmd>Telescope find_files<CR>", "Find files" },
-			e = { "<cmd>Oil --float<CR>", "Explore files" }
+			e = { "<cmd>Oil --float<CR>", "Explore files" },
 		},
 	}
 

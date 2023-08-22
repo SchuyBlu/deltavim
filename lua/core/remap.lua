@@ -1,5 +1,3 @@
--- Author: Schuy
-
 -- Easy mapping to file explorer
 vim.g.mapleader = " "
 
