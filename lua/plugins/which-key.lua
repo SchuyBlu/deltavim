@@ -12,28 +12,56 @@ function M.config()
 	if not status then
 		return
 	end
-	
-	local opts = {
+
+	-- Simple function that spits out a shallow copy of a table, and does not
+	-- copy any data deeper than one level.
+	local function shallow_copy(in_var)
+		local out_var = {}
+		if type(in_var) == "table" then
+			for in_var_key, in_var_val in pairs(in_var) do
+				out_var[in_var_key] = in_var_val
+			end
+		else
+			out_var = in_var
+		end
+		return out_var
+	end
+
+	local base_opts = {
 		mode = "n",
-		prefix = "<leader>",
+		prefix = "",
 		buffer = nil,
 		silent = true,
 		noremap = true,
 		nowait = false,
-		expr = false,
+		expr = false
 	}
 
-	local mappings = {
+	local leader_opts = shallow_copy(base_opts)
+	leader_opts.prefix = "<leader>"
+	
+	local base_mappings = {
+		["<F5>"] = { "<cmd>NvimTreeToggle<CR>", "Toggle tree view" }
+	}
+
+	local leader_mappings = {
 		c = { "<cmd>bdelete<CR>", "Close buffer" }, -- Close whatever buffer you're within
 		f = {
-			name = "File Handling",
+			name = "File Explorer",
 			f = { "<cmd>Telescope find_files<CR>", "Find files" },
-			e = { "<cmd>Oil --float<CR>", "Explore files" },
+			e = { "<cmd>Oil --float<CR>", "Explore files" }
 		},
+		t = {
+			name = "Tree Explorer",
+			t = { "<cmd>NvimTreeToggle<CR>", "Toggle tree view" },
+			f = { "<cmd>NvimTreeFindFile<CR>", "Find File in tree" },
+			c = { "<cmd>NvimTreeCollapse<CR>", "Collapse tree recursively" }
+		}
 	}
 
-	which_key.register(mappings, opts)
-
+	which_key.register(base_mappings, base_opts)
+	which_key.register(leader_mappings, leader_opts)
 end
 
 return M
+
