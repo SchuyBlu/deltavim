@@ -60,12 +60,14 @@ function M.config()
 		},
 		p = {
 			name = "Tab Pages",
-			n = { "<cmd>BufferLineMoveNext<CR>", "Move to the next tab" },
-			p = { "<cmd>BufferLineMovePrev<CR>", "Move the the previous tab" }
+			j = { "<cmd>BufferLineMoveNext<CR>", "Move to the next tab" },
+			k = { "<cmd>BufferLineMovePrev<CR>", "Move the the previous tab" }
 		},
 		g = {
 			name = "Git Commands",
-			s = { "<cmd>Neogit<CR>", "git status" }
+			s = { "<cmd>Neogit<CR>", "git status" },
+			j = { "<cmd>Gitsigns next_hunk<CR>", "View next hunk" },
+			k = { "<cmd>Gitsigns prev_hunk<CR>", "View prev hunk" }
 		}
 	}
 
