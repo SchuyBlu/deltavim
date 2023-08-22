@@ -56,6 +56,11 @@ function M.config()
 			t = { "<cmd>NvimTreeToggle<CR>", "Toggle tree view" },
 			f = { "<cmd>NvimTreeFindFile<CR>", "Find File in tree" },
 			c = { "<cmd>NvimTreeCollapse<CR>", "Collapse tree recursively" }
+		},
+		p = {
+			name = "Tab Pages",
+			n = { "<cmd>BufferLineMoveNext<CR>", "Move to the next tab" },
+			p = { "<cmd>BufferLineMovePrev<CR>", "Move the the previous tab" }
 		}
 	}
 
