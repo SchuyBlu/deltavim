@@ -41,6 +41,7 @@ function M.config()
 	leader_opts.prefix = "<leader>"
 	
 	local base_mappings = {
+		["<F4>"] = { "<cmd>ToggleTerm<CR>", "Toggle the terminal" },
 		["<F5>"] = { "<cmd>NvimTreeToggle<CR>", "Toggle tree view" }
 	}
 
