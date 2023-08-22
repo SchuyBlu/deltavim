@@ -25,9 +25,9 @@ function M.config()
 
 	local mappings = {
 		f = {
-			name = "Telescope",
+			name = "File Handling",
 			f = { "<cmd>Telescope find_files<CR>", "Find files" },
-			e = { "<cmd>Telescope file_browser<CR>", "Explore files" }
+			e = { "<cmd>Oil --float<CR>", "Explore files" }
 		},
 	}
 
