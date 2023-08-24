@@ -60,8 +60,8 @@ function M.config()
 		},
 		p = {
 			name = "Tab Pages",
-			j = { "<cmd>BufferLineCycleNext<CR>", "Move to the next tab" },
-			k = { "<cmd>BufferLineCyclePrev<CR>", "Move the the previous tab" }
+			l = { "<cmd>BufferLineCycleNext<CR>", "Move to the next tab" },
+			h = { "<cmd>BufferLineCyclePrev<CR>", "Move the the previous tab" }
 		},
 		g = {
 			name = "Git Commands",
