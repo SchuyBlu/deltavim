@@ -66,9 +66,13 @@ function M.config()
 		g = {
 			name = "Git Commands",
 			c = { "<cmd>Neogit<CR>", "Stage and commit" },
-			s = { "<cmd>Git reset --soft<CR>", "Reset to previous commit without moving index" },
-			r = { "<cmd>Git reset --mixed<CR>", "Reset to previous commit and index" },
-			h = { "<cmd>Git reset --hard<CR>", "Reset to prevous commit, index, and working directory" },
+			s = { "<cmd>Git status<CR>", "View git status" },
+			r = {
+				name = "Git Reset Command",
+				s = { "<cmd>Git reset --soft<CR>", "Reset to previous commit without moving index" },
+				r = { "<cmd>Git reset --mixed<CR>", "Reset to previous commit and index" },
+				h = { "<cmd>Git reset --hard<CR>", "Reset to prevous commit, index, and working directory" },
+			},
 			p = { "<cmd>Git push<CR>", "Push to remote target" },
 			u = { "<cmd>Git pull<CR>", "Pull from remote target" },
 		}
