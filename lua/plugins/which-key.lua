@@ -50,22 +50,28 @@ function M.config()
 		f = {
 			name = "File Explorer",
 			f = { "<cmd>Telescope find_files<CR>", "Find files" },
-			e = { "<cmd>Oil --float<CR>", "Explore files" }
+			e = { "<cmd>Oil --float<CR>", "Explore files" },
 		},
 		t = {
 			name = "Tree Explorer",
 			t = { "<cmd>NvimTreeToggle<CR>", "Toggle tree view" },
 			f = { "<cmd>NvimTreeFindFile<CR>", "Find File in tree" },
-			c = { "<cmd>NvimTreeCollapse<CR>", "Collapse tree recursively" }
+			c = { "<cmd>NvimTreeCollapse<CR>", "Collapse tree recursively" },
 		},
 		p = {
 			name = "Tab Pages",
 			l = { "<cmd>BufferLineCycleNext<CR>", "Move to the next tab" },
-			h = { "<cmd>BufferLineCyclePrev<CR>", "Move the the previous tab" }
+			h = { "<cmd>BufferLineCyclePrev<CR>", "Move the the previous tab" },
 		},
 		g = {
 			name = "Git Commands",
-			s = { "<cmd>Neogit<CR>", "git status" },
+			c = { "<cmd>Neogit<CR>", "Stage and commit" },
+			s = { "<cmd>Git reset --soft<CR>", "Reset to previous commit without moving index" },
+			r = { "<cmd>Git reset --mixed<CR>", "Reset to previous commit and index" },
+			h = { "<cmd>Git reset --hard<CR>", "Reset to prevous commit, index, and working directory" },
+			-- NOTE: If you don't name your remote target and branch "origin" and "main", reword this cmd
+			p = { "<cmd>Git push origin main<CR>", "Push to remote target" },
+			u = { "<cmd>Git pull<CR>", "Pull from remote target" },
 		}
 	}
 
