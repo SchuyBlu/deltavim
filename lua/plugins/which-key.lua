@@ -69,8 +69,7 @@ function M.config()
 			s = { "<cmd>Git reset --soft<CR>", "Reset to previous commit without moving index" },
 			r = { "<cmd>Git reset --mixed<CR>", "Reset to previous commit and index" },
 			h = { "<cmd>Git reset --hard<CR>", "Reset to prevous commit, index, and working directory" },
-			-- NOTE: If you don't name your remote target and branch "origin" and "main", reword this cmd
-			p = { "<cmd>Git push origin main<CR>", "Push to remote target" },
+			p = { "<cmd>Git push<CR>", "Push to remote target" },
 			u = { "<cmd>Git pull<CR>", "Pull from remote target" },
 		}
 	}
