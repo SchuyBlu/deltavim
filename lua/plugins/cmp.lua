@@ -23,22 +23,6 @@ function M.config()
 				c = cmp.mapping.close(),
 			}),
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
-			["<Tab>"] = cmp.mapping(function()
-				if cmp.visible() then
-					cmp.select_next_item()
-				end
-			end, {
-				"i",
-				"s",
-			}),
-			["<S-Tab>"] = cmp.mapping(function()
-				if cmp.visible() then
-					cmp.select_prev_item()
-				end
-			end, {
-				"i",
-				"s",
-			}),
 		}),
 
 		formatting = {
