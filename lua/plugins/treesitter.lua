@@ -25,7 +25,7 @@ function M.config()
 			"css",
 			"html",
 			"vim",
-			"json"
+			"json",
 		},
 		sync_install = true,
 		auto_install = true,

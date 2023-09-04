@@ -10,8 +10,8 @@ function M.config()
 
 	presence.setup({
 		auto_update = true,
-		neovim_image_text = "The One True Text Editor",
-		main_image = "neovim",
+		neovim_image_text = "Just a text editor",
+		main_image = "file",
 		client_id = "793271441293967371",
 		log_level = nil,
 		debounce_timeout = 10,
