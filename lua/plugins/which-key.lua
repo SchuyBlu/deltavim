@@ -39,9 +39,20 @@ function M.config()
 
 	local leader_opts = shallow_copy(base_opts)
 	leader_opts.prefix = "<leader>"
+
+	-- Function meant to check if dir exists.
+	function exists(file)
+		local ok, err, code = os.rename(file, file)
+		if not ok then
+			if code == 13 then
+				return true
+			end
+		end
+		return ok, err
+	end
 	
 	local base_mappings = {
-		["<F4>"] = { "<cmd>ToggleTerm<CR>", "Toggle the terminal" },
+		["<F4>"] = { "<cmd>lua _VARIABLE_TERM()<CR>", "Toggle the terminal" },
 		["<F5>"] = { "<cmd>NvimTreeToggle<CR>", "Toggle tree view" }
 	}
 
