@@ -52,7 +52,7 @@ function M.config()
 	end
 	
 	local base_mappings = {
-		["<F4>"] = { "<cmd>lua _VARIABLE_TERM()<CR>", "Toggle the terminal" },
+		["<F4>"] = { "<cmd>lua _TMUX_TOGGLE()<CR>", "Toggle the terminal" },
 		["<F5>"] = { "<cmd>NvimTreeToggle<CR>", "Toggle tree view" }
 	}
 
@@ -76,17 +76,15 @@ function M.config()
 		},
 		g = {
 			name = "Git Commands",
-			c = { "<cmd>Neogit<CR>", "Stage and commit" },
-			s = { "<cmd>Git status<CR>", "View git status" },
-			r = {
-				name = "Git Reset Command",
-				s = { "<cmd>Git reset --soft<CR>", "Reset to previous commit without moving index" },
-				r = { "<cmd>Git reset --mixed<CR>", "Reset to previous commit and index" },
-				h = { "<cmd>Git reset --hard<CR>", "Reset to prevous commit, index, and working directory" },
-			},
-			p = { "<cmd>Git push<CR>", "Push to remote target" },
-			u = { "<cmd>Git pull<CR>", "Pull from remote target" },
-		}
+			b = { "<cmd>Gitsigns toggle_current_line_blame<CR>", "Toggle Git Blame" },
+			B = { "<cmd>Telescope git_branches<CR>", "Checkout branches" },
+			c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
+			l = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Toggle lazygit" },
+		},
+		s = {
+			name = "System Commands",
+			m = { "<cmd>lua _TOP_TOGGLE()<CR>", "Toggle top" },
+		},
 	}
 
 	which_key.register(base_mappings, base_opts)

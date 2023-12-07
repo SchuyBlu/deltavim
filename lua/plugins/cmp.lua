@@ -1,15 +1,37 @@
+local cmdline = true
 local M = {
 	"hrsh7th/nvim-cmp",
+	event = { "InsertEnter", "CmdLineEnter" },
 	dependencies = {
+		"onsails/lspkind.nvim",
+		"windwp/nvim-autopairs",
+		"L3MON4D3/LuaSnip",
+		"saadparwaiz1/cmp_luasnip",
 		"hrsh7th/cmp-nvim-lsp",
-	}
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-emoji",
+		"hrsh7th/cmp-nvim-lsp-signature-help",
+		{ "hrsh7th/cmp-cmdline", enabled = cmdline },
+		{ "dmitmel/cmp-cmdline-history", enabled = cmdline },
+		"hrsh7th/cmp-path",
+	},
+	enabled = true,
 }
 
 function M.config()
+	vim.o.completeopt = "menuone,noselect"
+
+	require("luasnip.loaders.from_vscode").lazy_load()
+	local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 	local status, cmp = pcall(require, "cmp")
 	if not status then
 		return
 	end
+
+	local check_backspace = function()
+        local col = vim.fn.col(".") - 1
+        return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
+    end
 
 	cmp.setup({
 		mapping = cmp.mapping.preset.insert({
@@ -23,6 +45,19 @@ function M.config()
 				c = cmp.mapping.close(),
 			}),
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
+			["<Tab>"] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+					cmp.select_next_item()
+				elseif check_backspace() then
+					fallback()
+				else
+					fallback()
+				end
+			end,
+			 {
+			 	"i",
+				"s",
+			})
 		}),
 
 		formatting = {

@@ -14,6 +14,8 @@ function M.config()
 	local servers = {
 		"clangd",
 		"pyright",
+		"lua_ls",
+		"omnisharp",
 	}
 
 	local settings = {
@@ -30,12 +32,19 @@ function M.config()
 		automatic_installation = true,
 	})
 
+	local opts = {}
+
+	require("mason-lspconfig").setup_handlers({
+		["pyright"] = function()
+			local pyright_opts = require("plugins.lsp.settings.pyright")
+			require("lspconfig").pyright.setup(pyright_opts)
+		end,
+	})
+
 	local status, lspconfig = pcall(require, "lspconfig")
 	if not status then
 		return
 	end
-
-	local opts = {}
 
 	for _, server in ipairs(servers) do
 		opts = {

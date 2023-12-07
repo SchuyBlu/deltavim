@@ -32,7 +32,7 @@ function M.config()
 		return ok, err
 	end
 
-	function _VARIABLE_TERM()
+	function _TMUX_TOGGLE()
 		local venv = Terminal:new({
 			cmd = "tmux",
 			hidden = true,
@@ -45,6 +45,31 @@ function M.config()
 			end,
 		})
 		venv:toggle()
+	end
+
+	function _LAZYGIT_TOGGLE()
+		local lazy = Terminal:new({
+			cmd = "lazygit",
+			hidden = true,
+			direction = "float",
+			shade_terminals = true,
+			on_open = function(_)
+				vim.cmd("startinsert!")
+			end,
+			on_close = function(_)
+			end,
+		})
+		lazy:toggle()
+	end
+
+	function _TOP_TOGGLE()
+		local top = Terminal:new({
+			cmd = "top",
+			hidden = true,
+			direction = "float",
+			shade_terminals = true,
+		})
+		top:toggle()
 	end
 end
 
