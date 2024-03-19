@@ -82,8 +82,10 @@ function M.config()
 			l = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Toggle lazygit" },
 		},
 		s = {
-			name = "System Commands",
-			m = { "<cmd>lua _TOP_TOGGLE()<CR>", "Toggle top" },
+			name = "Show",
+			s = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Toggle signature" },
+			d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Toggle definition" },
+			-- m = { "<cmd>lua _TOP_TOGGLE()<CR>", "Toggle top" },
 		},
 	}
 

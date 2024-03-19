@@ -35,6 +35,13 @@ function M.config()
 
 	cmp.setup({
 		mapping = cmp.mapping.preset.insert({
+			["<C-g>"] = function()
+				if cmp.visible_docs() then
+					cmp.close_docs()
+				else
+					cmp.open_docs()
+				end
+			end,
 			["<C-k>"] = cmp.mapping.select_prev_item(),
 			["<C-j>"] = cmp.mapping.select_next_item(),
 			["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
@@ -57,7 +64,20 @@ function M.config()
 			 {
 			 	"i",
 				"s",
-			})
+			}),
+			["<S-Tab>"] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+					cmp.select_prev_item()
+				elseif check_backspace() then
+					fallback()
+				else
+					fallback()
+				end
+			end,
+			 {
+			 	"i",
+				"s",
+			}),
 		}),
 
 		formatting = {

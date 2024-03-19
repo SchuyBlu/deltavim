@@ -9,7 +9,7 @@ function M.config()
 	local opts = {}
 	local cfg = {
 		debug = false,
-		log_path = "debug_log_file_path",
+		log_path = vim.fn.stdpath("cache") .. "/lsp_signature.log",
 		verbose = false,
 		bind = true,
 		doc_lines = 10,
@@ -29,7 +29,7 @@ function M.config()
 		padding = " ",
 		transparency = nil,
 		time_interval = 200,
-		toggle_key = nil
+		toggle_key = nil,
 	}
 
 	signature.setup(cfg)

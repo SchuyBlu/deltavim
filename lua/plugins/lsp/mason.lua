@@ -16,6 +16,7 @@ function M.config()
 		"pyright",
 		"lua_ls",
 		"omnisharp",
+		"rust_analyzer",
 	}
 
 	local settings = {
