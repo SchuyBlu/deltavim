@@ -27,4 +27,8 @@ return {
 	{
 		"onsails/lspkind.nvim",
 	},
+
+	{
+		"mfussenegger/nvim-jdtls",
+	},
 }

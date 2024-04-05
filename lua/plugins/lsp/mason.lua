@@ -5,6 +5,7 @@ local servers = {
 	"clangd",
 	"tsserver",
 	"rust_analyzer",
+	"jdtls",
 }
 
 print("Hello!")
