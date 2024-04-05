@@ -28,6 +28,11 @@ function M.config()
 		return
 	end
 
+	local lspkind_status, lspkind = pcall(require, "lspkind")
+	if not lspkind_status then
+		return
+	end
+
 	local check_backspace = function()
         local col = vim.fn.col(".") - 1
         return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
@@ -91,10 +96,11 @@ function M.config()
 			end,
 		},
 
-		sources = {
+		sources = cmp.config.sources({
 			{ name = "nvim_lsp" },
 			{ name = "buffer" },
-		},
+			{ name = "path" },
+		}),
 
 		window = {
 			completion = cmp.config.window.bordered(),

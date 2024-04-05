@@ -59,9 +59,14 @@ function M.config()
 	local leader_mappings = {
 		c = { "<cmd>bdelete<CR>", "Close buffer" }, -- Close whatever buffer you're within
 		f = {
-			name = "File Explorer",
+			name = "Files",
 			f = { "<cmd>Telescope find_files<CR>", "Find files" },
 			e = { "<cmd>Oil --float<CR>", "Explore files" },
+			s = { "<cmd>Telescope grep_string<CR>", "Find word" },
+			b = { "<cmd>Telescope file_browser<CR>", "File browser" },
+			k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
+			m = { "<cmd>Telescope man_pages<CR>", "Man pages" },
+			t = { "<cmd>Telescope live_grep<CR>", "Find text" },
 		},
 		t = {
 			name = "Tree Explorer",

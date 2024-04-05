@@ -9,5 +9,7 @@ return {
 	{ "NLKNguyen/papercolor-theme" },
 	{ "tckmn/hotdog.vim" },
 	{ "kylelaker/riscv.vim" },
+	{ "mellow-theme/mellow.nvim" },
+	{ "Yazeed1s/oh-lucy.nvim" },
 }
 

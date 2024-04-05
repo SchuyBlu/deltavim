@@ -1,27 +1,30 @@
 return {
+
+	-- LSP package manager
 	{
 		"williamboman/mason.nvim",
-		dependencies = {
-			"williamboman/mason-lspconfig.nvim",
-		},
 		config = function()
-			require("plugins.lsp.mason").config()
-		end
+			require("plugins.lsp.mason")
+		end,
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
 	},
 
 	{
 		"neovim/nvim-lspconfig",
-		config = function()
-			require("plugins.lsp.lspconfig").config()
-		end
 	},
 
 	{
-		"ray-x/lsp_signature.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("plugins.lsp.signature").config()
-		end
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			"nvim-treesitter/nvim-treesitter",
+		},
+	},
+
+	{
+		"onsails/lspkind.nvim",
 	},
 }
-
