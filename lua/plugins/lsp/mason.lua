@@ -8,8 +8,6 @@ local servers = {
 	"jdtls",
 }
 
-print("Hello!")
-
 local settings = {
 	log_level = vim.log.levels.INFO,
 	max_concurrent_installers = 4,

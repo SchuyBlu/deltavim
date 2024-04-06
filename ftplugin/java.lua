@@ -1,6 +1,12 @@
+local datapath = vim.fn.stdpath("data")
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+local workspace_dir = vim.fn.expand("~") .. '/workspace/java/' .. project_name
 
-local workspace_dir = '/home/schuy/workspace/java/' .. project_name
+local bundles = {
+	vim.fn.glob(datapath .. "/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", 1),
+};
+vim.list_extend(vim.split(vim.fn.glob(datapath .. "/mason/packages/java-test/extension/server/*.jar", 1), "\n"))
+
 
 local config = {
 	cmd = {
@@ -15,11 +21,14 @@ local config = {
 		'--add-opens', 'java.base/java.util=ALL-UNNAMED',
 		'--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
-		'-jar', '/home/schuy/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar',
+		'-jar', datapath .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar',
 
-		'-configuration', '/home/schuy/.local/share/nvim/mason/packages/jdtls/config_linux',
+		'-configuration', datapath .. '/mason/packages/jdtls/config_linux',
 
 		'-data', workspace_dir,
+	},
+	init_options = {
+		bundles = bundles,
 	},
 }
 

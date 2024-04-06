@@ -7,8 +7,20 @@ return {
 			require("plugins.lsp.mason")
 		end,
 	},
+
+	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		config = function()
+			require("plugins.lsp.mason_tool_installer")
+		end,
+	},
+
 	{
 		"williamboman/mason-lspconfig.nvim",
+	},
+
+	{
+		"mfussenegger/nvim-dap",
 	},
 
 	{
