@@ -2,12 +2,6 @@ local datapath = vim.fn.stdpath("data")
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = vim.fn.expand("~") .. '/workspace/java/' .. project_name
 
-local bundles = {
-	vim.fn.glob(datapath .. "/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", 1),
-};
-vim.list_extend(vim.split(vim.fn.glob(datapath .. "/mason/packages/java-test/extension/server/*.jar", 1), "\n"))
-
-
 local config = {
 	cmd = {
 		'java',
@@ -26,9 +20,6 @@ local config = {
 		'-configuration', datapath .. '/mason/packages/jdtls/config_linux',
 
 		'-data', workspace_dir,
-	},
-	init_options = {
-		bundles = bundles,
 	},
 }
 
