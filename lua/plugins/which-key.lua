@@ -53,7 +53,9 @@ function M.config()
 	
 	local base_mappings = {
 		["<F4>"] = { "<cmd>lua _TMUX_TOGGLE()<CR>", "Toggle the terminal" },
-		["<F5>"] = { "<cmd>NvimTreeToggle<CR>", "Toggle tree view" }
+		["<F5>"] = { "<cmd>NvimTreeToggle<CR>", "Toggle tree view" },
+		["<F9>"] = { " <cmd>RunCode<CR>", "Run code" },
+		["<F10>"] = {" <cmd>RunProject<CR>", "Run project" },
 	}
 
 	local leader_mappings = {
