@@ -26,6 +26,8 @@ function M.config()
 			"html",
 			"vim",
 			"json",
+			"markdown",
+			"markdown_inline",
 		},
 		sync_install = true,
 		auto_install = true,
