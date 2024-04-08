@@ -18,6 +18,9 @@ function M.config()
 
 	telescope.setup({
 		defaults = {
+			layout_config = {
+				horizontal = { width = 0.9 },
+			},
 			path_display = { "smart" },
 			file_ignore_patterns = {
 				".git/",

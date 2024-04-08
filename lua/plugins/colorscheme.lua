@@ -11,5 +11,7 @@ return {
 	{ "kylelaker/riscv.vim" },
 	{ "mellow-theme/mellow.nvim" },
 	{ "Yazeed1s/oh-lucy.nvim" },
+	{ "AhmedAbdulrahman/aylin.vim" },
+	{ "sts10/vim-pink-moon" },
 }
 

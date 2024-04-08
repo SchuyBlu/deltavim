@@ -14,7 +14,9 @@ function M.config()
 
 	code_runner.setup({
 		mode = "toggleterm",
+
 		project_path = vim.fn.expand("~/.config/nvim/project_manager.json"),
+
 		filetype = {
 			awk = "awk -f $file",
 			riscv = {
