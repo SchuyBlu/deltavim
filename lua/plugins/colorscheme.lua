@@ -13,5 +13,13 @@ return {
 	{ "Yazeed1s/oh-lucy.nvim" },
 	{ "AhmedAbdulrahman/aylin.vim" },
 	{ "sts10/vim-pink-moon" },
+	{
+		"dfendr/fenbox",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("plugins.colorscheme.fenbox").config()
+		end,
+	},
 }
 

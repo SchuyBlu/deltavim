@@ -5,5 +5,5 @@ require("setup.lazy_bootstrap")
 
 -- Set up all plugins, see lua/plugins/
 require("lazy").setup("plugins")
-vim.cmd.colorscheme("everforest")
+vim.cmd.colorscheme("fenbox")
 
