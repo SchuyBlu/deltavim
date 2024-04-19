@@ -50,7 +50,7 @@ function M.config()
 		end
 		return ok, err
 	end
-	
+
 	local base_mappings = {
 		["<F4>"] = { "<cmd>lua _TMUX_TOGGLE()<CR>", "Toggle the terminal" },
 		["<F5>"] = { "<cmd>NvimTreeToggle<CR>", "Toggle tree view" },
@@ -93,6 +93,11 @@ function M.config()
 			s = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Toggle signature" },
 			d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Toggle definition" },
 			-- m = { "<cmd>lua _TOP_TOGGLE()<CR>", "Toggle top" },
+		},
+		i = {
+			name = "Icons",
+			f = { "<cmd>IconPickerNormal<CR>", "Find icons" },
+			y = { "<cmd>IconPickerYank<CR>", "Yank icon" },
 		},
 	}
 

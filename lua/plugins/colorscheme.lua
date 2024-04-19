@@ -1,7 +1,7 @@
 return {
 	{ "folke/tokyonight.nvim" },
 	{ "morhetz/gruvbox" },
-	{ "lunarvim/darkplus.nvim" },
+	--{ "lunarvim/darkplus.nvim" },
 	{ "tanvirtin/monokai.nvim" },
 	{ "kaiuri/nvim-juliana" },
 	{ "sainnhe/everforest" },
@@ -16,10 +16,15 @@ return {
 	{
 		"dfendr/fenbox",
 		lazy = false,
-		priority = 1000,
 		config = function()
 			require("plugins.colorscheme.fenbox").config()
 		end,
 	},
+	{
+		"SchuyBlu/cat-chromatic.nvim",
+		dir = "~/workspace/cat-chromatic.nvim/",
+		lazy = false,
+		priority = 1000,
+	}
 }
 

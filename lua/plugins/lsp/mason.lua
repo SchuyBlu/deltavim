@@ -6,6 +6,7 @@ local servers = {
 	"tsserver",
 	"rust_analyzer",
 	"jdtls",
+	"omnisharp",
 }
 
 local settings = {
