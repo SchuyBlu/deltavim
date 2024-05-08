@@ -1,6 +1,4 @@
--- Easy mapping to file explorer
 vim.g.mapleader = " "
-
--- Misc mapping
+vim.g.maplocalleader = ","
 vim.keymap.set("i", "jj", "<esc>")
 

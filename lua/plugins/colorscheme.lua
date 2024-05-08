@@ -20,11 +20,12 @@ return {
 			require("plugins.colorscheme.fenbox").config()
 		end,
 	},
+	{ "projekt0n/github-nvim-theme" },
 	{
 		"SchuyBlu/cat-chromatic.nvim",
 		dir = "~/workspace/cat-chromatic.nvim/",
 		lazy = false,
 		priority = 1000,
-	}
+	},
 }
 

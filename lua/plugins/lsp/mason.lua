@@ -7,6 +7,7 @@ local servers = {
 	"rust_analyzer",
 	"jdtls",
 	"omnisharp",
+	"texlab",
 }
 
 local settings = {
