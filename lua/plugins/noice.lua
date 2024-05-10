@@ -30,12 +30,19 @@ function M.config()
 		},
 		routes = {
 			{
+				view = "notify",
 				filter = {
 					event = "msg_show",
 					kind = "",
 					find = "written",
 				},
 				opts = { skip = true },
+			},
+			{
+				-- Temporary fix, want to display on lualine for
+				-- @recording macros eventually.
+				view = "mini",
+				filter = { event = "msg_showmode", },
 			},
 		},
 	}
