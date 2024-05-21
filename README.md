@@ -1,6 +1,6 @@
-# Schuy's Neovim Config
+# DeltaVim
 
-Hello! This is a very basic setup for Neovim that takes advantage of the [Lazy Plugin Manager](https://github.com/folke/lazy.nvim). 
+Simple configuration for Neovim that takes advantage of the [Lazy Plugin Manager](https://github.com/folke/lazy.nvim). 
 
 # Dependencies
 

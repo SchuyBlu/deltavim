@@ -28,7 +28,7 @@ function M.config()
 		plugin_manager_text = "Managing plugins",
 		reading_text = "Reading %s",
 		workspace_text = "Working on %s",
-		line_number_text = "Line %s out of %s"
+		line_number_text = "Line %s out of %s",
 	})
 end
 
