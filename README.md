@@ -13,7 +13,7 @@ You need the following dependencies installed in order to run:
 
 Install these according to the instructions provided for your operating system.
 
-## Installation.
+## Installation
 
 Installation is as easy the following:
 
