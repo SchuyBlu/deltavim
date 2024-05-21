@@ -2,7 +2,7 @@
 
 Simple configuration for Neovim that takes advantage of the [Lazy Plugin Manager](https://github.com/folke/lazy.nvim). 
 
-# Dependencies
+## Dependencies
 
 You need the following dependencies installed in order to run:
 
@@ -13,7 +13,7 @@ You need the following dependencies installed in order to run:
 
 Install these according to the instructions provided for your operating system.
 
-# Installation.
+## Installation.
 
 Installation is as easy the following:
 

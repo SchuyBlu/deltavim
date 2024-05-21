@@ -95,9 +95,10 @@ function M.config()
 		val = {
 			button("n", "󰎔  New File", "<cmd>ene<CR>"),
 			button("l", "  Open Todo List", open_todo),
-			button("f", "󰈞  Find Files", ":Telescope find_files<CR>"),
-			button("w", "󰦨  Find Text", ":Telescope live_grep<CR>"),
-			button("r", "  Find Recent", ":Telescope oldfiles<CR>")
+			button("f", "󰈞  Find Files", "<cmd>Telescope find_files<CR>"),
+			button("w", "󰦨  Find Text", "<cmd>Telescope live_grep<CR>"),
+			button("r", "  Find Recent", "<cmd>Telescope oldfiles<CR>"),
+			button("g", "󰊢  Git", "<cmd>lua _LAZYGIT_TOGGLE()<CR>"),
 		},
 		opts = {
 			spacing = 1,
