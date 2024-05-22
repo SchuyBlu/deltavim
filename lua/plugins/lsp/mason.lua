@@ -8,6 +8,7 @@ local servers = {
 	"jdtls",
 	"omnisharp",
 	"texlab",
+	"asm_lsp",
 }
 
 local settings = {
