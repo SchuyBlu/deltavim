@@ -41,6 +41,7 @@ function M.config()
 	leader_opts.prefix = "<leader>"
 
 	-- Function meant to check if dir exists.
+	--[[
 	function exists(file)
 		local ok, err, code = os.rename(file, file)
 		if not ok then
@@ -49,6 +50,28 @@ function M.config()
 			end
 		end
 		return ok, err
+	end
+	--]]
+
+	local function buffer_count()
+		local i = vim.fn.bufnr(string.byte("$"))
+		local j = 0
+		while i >= 1 do
+			if vim.fn.buflisted(i) then
+				j = j + 1
+			end
+			i = i - 1
+		end
+		return j
+	end
+
+	function close_focus_buffer()
+		local res = buffer_count()
+		if res == 0 then
+			vim.cmd.wq()
+			return
+		end
+		vim.cmd.bd()
 	end
 
 	local base_mappings = {
@@ -59,7 +82,7 @@ function M.config()
 	}
 
 	local leader_mappings = {
-		c = { "<cmd>bdelete<CR>", "Close buffer" }, -- Close whatever buffer you're within
+		c = { "<cmd>lua close_focus_buffer()<CR>", "Close buffer" }, -- Close whatever buffer you're within
 		f = {
 			name = "Files",
 			f = { "<cmd>Telescope find_files<CR>", "Find files" },
