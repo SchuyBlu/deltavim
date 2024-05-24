@@ -1,9 +1,7 @@
 local M = {
 	"stevearc/oil.nvim",
 	opts = {},
-	dependencies = {
-		"nvim-tree/nvim-web-devicons"
-	}
+	dependencies = { "nvim-tree/nvim-web-devicons" }
 }
 
 function M.config()
@@ -14,8 +12,10 @@ function M.config()
 
 	oil.setup({
 		default_file_explorer = true,
-		columns = {
-			"icons",
+		columns = { "icon" },
+		buf_options = {
+			buflisted = false,
+			bufhidden = "hide",
 		},
 		view_options = {
 			show_hidden = true,

@@ -86,6 +86,7 @@ function M.config()
 		}),
 
 		formatting = {
+			expandable_indicator = true,
 			fields = { "kind", "abbr", "menu" },
 			format = function(entry, vim_item)
 				vim_item.menu = ({
