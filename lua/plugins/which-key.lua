@@ -40,41 +40,73 @@ function M.config()
 	local leader_opts = shallow_copy(base_opts)
 	leader_opts.prefix = "<leader>"
 
-	-- Function meant to check if dir exists.
-	--[[
-	function exists(file)
-		local ok, err, code = os.rename(file, file)
-		if not ok then
-			if code == 13 then
-				return true
-			end
-		end
-		return ok, err
-	end
-	--]]
 
-	local function buffer_count()
-		local i = vim.fn.bufnr(string.byte("$"))
-		local j = 0
-		while i >= 1 do
-			if vim.fn.buflisted(i) then
-				j = j + 1
+	function close_all_buffers_except_current()
+		local current_buf = vim.api.nvim_get_current_buf()
+		local buffers = vim.api.nvim_list_bufs()
+
+		for _, buf_id in ipairs(buffers) do
+			if vim.api.nvim_buf_is_loaded(buf_id)
+				and vim.api.nvim_buf_is_valid(buf_id)
+				and buf_id ~= current_buf then
+				local buftype = vim.bo[buf_id].buftype
+				if buftype ~= "terminal" then
+					vim.api.nvim_buf_delete(buf_id, { force = false })
+				end
 			end
-			i = i - 1
 		end
-		return j
+	end
+
+	local function list_number_of_normal_buffers()
+		local buffers = vim.api.nvim_list_bufs()
+		local count = 0
+
+		for _, id in ipairs(buffers) do
+			local buftype = vim.bo[id].buftype
+			if buftype == "" then count = count + 1 end
+		end
+		return count
 	end
 
 	function close_focus_buffer()
-		local res = buffer_count()
-		if res == 0 then
+		local res = list_number_of_normal_buffers()
+
+		if res == 0 or res == 1 then
 			vim.cmd.wq()
 			return
 		end
+
 		vim.cmd.bd()
 	end
 
+	local function non_normal_buffer_open()
+		local buffers = vim.api.nvim_list_bufs()
+
+		for _, id in ipairs(buffers) do
+			local buftype = vim.bo[id].buftype
+			if buftype ~= "" then return true end
+		end
+		return false
+	end
+
+	MYGUIBG=nil
+	function toggle_transparency()
+		if non_normal_buffer_open() then
+			require("notify")("Please close non-standard buffers.")
+			return
+		end
+
+		if MYGUIBG == nil then
+			MYGUIBG = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Normal")), "bg#")
+			vim.api.nvim_set_hl(0, "Normal", { bg = nil })
+			return
+		end
+		vim.api.nvim_set_hl(0, "Normal", { bg = MYGUIBG })
+		MYGUIBG = nil
+	end
+
 	local base_mappings = {
+		["<F2>"] = { "<cmd>lua toggle_transparency()<CR>", "Toggles transparent view."},
 		["<F4>"] = { "<cmd>lua _TMUX_TOGGLE()<CR>", "Toggle the terminal" },
 		["<F5>"] = { "<cmd>NvimTreeToggle<CR>", "Toggle tree view" },
 		["<F9>"] = { " <cmd>RunCode<CR>", "Run code" },
@@ -83,6 +115,7 @@ function M.config()
 
 	local leader_mappings = {
 		c = { "<cmd>lua close_focus_buffer()<CR>", "Close buffer" }, -- Close whatever buffer you're within
+		C = { "<cmd>lua close_all_buffers_except_current()<CR>", "Close all buffers except current." },
 		f = {
 			name = "Files",
 			f = { "<cmd>Telescope find_files<CR>", "Find files" },

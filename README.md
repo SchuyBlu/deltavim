@@ -24,3 +24,7 @@ nvim
 
 The first call to `nvim` installs `Lazy` and all plugins.
 
+
+## TODO
+
+- Move functions within `which-key` into their own module. 

@@ -13,6 +13,9 @@ function M.config()
 		return
 	end
 
+	--local color = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Normal")), "bg#")
+	--require("notify").setup({ background_colour = color })
+
 	local settings = {
 		lsp = {
 			override = {
@@ -36,7 +39,7 @@ function M.config()
 					kind = "",
 					find = "written",
 				},
-				opts = { skip = true },
+				opts = { skip = false },
 			},
 			{
 				-- Temporary fix, want to display on lualine for
