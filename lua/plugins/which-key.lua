@@ -79,7 +79,7 @@ function M.config()
 		vim.cmd.bd()
 	end
 
-	local function non_normal_buffer_open()
+	local function non_standard_buffer_open()
 		local buffers = vim.api.nvim_list_bufs()
 
 		for _, id in ipairs(buffers) do
@@ -91,7 +91,7 @@ function M.config()
 
 	MYGUIBG=nil
 	function toggle_transparency()
-		if non_normal_buffer_open() then
+		if non_standard_buffer_open() then
 			require("notify")("Please close non-standard buffers.")
 			return
 		end

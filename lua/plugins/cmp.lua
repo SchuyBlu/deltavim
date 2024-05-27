@@ -19,19 +19,24 @@ local M = {
 }
 
 function M.config()
-	vim.o.completeopt = "menuone,noselect"
+	vim.o.completeopt = "menu,menuone,noselect"
 
 	require("luasnip.loaders.from_vscode").lazy_load()
+    require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
 	local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 	local status, cmp = pcall(require, "cmp")
 	if not status then
 		return
 	end
 
-	local lspkind_status, lspkind = pcall(require, "lspkind")
-	if not lspkind_status then
-		return
-	end
+	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+
+	local luasnip = require("luasnip")
+	luasnip.config.setup({
+		history = true,
+		region_check_events = "InsertEnter",
+		delete_check_events = "TextChanged,InsertLeave",
+	})
 
 	local check_backspace = function()
         local col = vim.fn.col(".") - 1
@@ -39,6 +44,11 @@ function M.config()
     end
 
 	cmp.setup({
+		snippet = {
+			expand = function(args)
+				luasnip.lsp_expand(args.body)
+			end
+		},
 		mapping = cmp.mapping.preset.insert({
 			["<C-g>"] = function()
 				if cmp.visible_docs() then
@@ -58,7 +68,11 @@ function M.config()
 			}),
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
 			["<Tab>"] = cmp.mapping(function(fallback)
-				if cmp.visible() then
+				if luasnip.expandable() then
+					luasnip.expand({})
+				elseif luasnip.expand_or_jumpable() then
+					luasnip.expand_or_jump()
+				elseif cmp.visible() then
 					cmp.select_next_item()
 				elseif check_backspace() then
 					fallback()
