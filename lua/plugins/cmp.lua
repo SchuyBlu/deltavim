@@ -69,11 +69,11 @@ function M.config()
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
 			["<Tab>"] = cmp.mapping(function(fallback)
 				if luasnip.expandable() then
-					luasnip.expand({})
+					luasnip.expand()
 				elseif luasnip.expand_or_jumpable() then
 					luasnip.expand_or_jump()
-				elseif cmp.visible() then
-					cmp.select_next_item()
+				--elseif cmp.visible() then
+				--	cmp.select_next_item()
 				elseif check_backspace() then
 					fallback()
 				else
@@ -85,8 +85,10 @@ function M.config()
 				"s",
 			}),
 			["<S-Tab>"] = cmp.mapping(function(fallback)
-				if cmp.visible() then
-					cmp.select_prev_item()
+				if luasnip.jumpable(-1) then
+					luasnip.jump(-1)
+				--elseif cmp.visible() then
+				--	cmp.select_prev_item()
 				elseif check_backspace() then
 					fallback()
 				else
@@ -113,8 +115,8 @@ function M.config()
 
 		sources = cmp.config.sources({
 			{ name = "nvim_lsp" },
-			{ name = "buffer" },
 			{ name = "path" },
+			{ name = "luasnip" }
 		}),
 
 		window = {

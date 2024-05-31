@@ -1,7 +1,7 @@
 vim.opt_local.shiftwidth = 2
 vim.opt_local.tabstop = 2
 vim.opt_local.spell = true
-vim.opt_local.conceallevel = 2
+vim.opt_local.conceallevel = 1
 
 local status, which_key = pcall(require, "which-key")
 if status then
