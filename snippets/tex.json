@@ -1,117 +1,25 @@
 {
-  "edge": {
-    "prefix": "edge",
-    "body": "node [midway,fill=none,label=$1:{$2}] {}"
-  },
-  "ro": { "prefix": "ro", "body": "right of=$0" },
-  "node": { "prefix": "node", "body": ["\\node[main] ($1) [$2] {$3};", "$0"] },
-  "//": { "prefix": "//", "body": "\\frac{$1}{$2}$0" },
-  "sqrt/": { "prefix": "sqrt/", "body": "\\frac{\\sqrt{$1}}{$2}$0" },
-  "compl": { "prefix": "compl", "body": "\\overline{$1}$0" },
-  "mcl": { "prefix": "mcl", "body": "\\mathcal{$1}$0" },
-  "ao": { "prefix": "ao", "body": "above of=$0" },
-  "drawc": {
-    "prefix": "drawc",
-    "body": ["\\draw ($1) to [out={$2},in={$3},looseness=$4] ($5);", "$0"]
-  },
-  "bf": { "prefix": "bf", "body": "\\textbf{$1}$0" },
-  "gc4": {
-    "prefix": "gc4",
-    "body": [
-      "\\begin{tikzpicture}[",
-      "\tnode distance = {15mm},",
-      "\tthick,",
-      "\tmain/.style = {draw, circle}",
-      "]",
-      "\t\\node[main] (1) [fill=black] {};",
-      "\t\\node[main] (2) [fill=black,right of=1] {};",
-      "\t\\node[main] (3) [fill=black,below of=1] {};",
-      "\t\\node[main] (4) [fill=black,below of=2] {};",
-      "\t\\draw (1) -- (2);",
-      "\t\\draw (2) -- (4);",
-      "\t\\draw (1) -- (3);",
-      "\t\\draw (3) -- (4);",
-      "\\end{tikzpicture}",
-      "\\caption{\\(C _{4}\\)}"
-    ]
-  },
-  "blo": { "prefix": "blo", "body": "below left of=$0" },
-  "line": { "prefix": "line", "body": ["\\rule{\\textwidth}{0.4pt}", "$0"] },
-  "graph": {
-    "prefix": "graph",
-    "body": [
-      "\\begin{tikzpicture}[",
-      "\tnode distance = {$1mm},",
-      "\tthick,",
-      "\tmain/.style = {draw, circle}",
-      "]",
-      "\t$2",
-      "\\end{tikzpicture}$0"
-    ]
-  },
-  "bro": { "prefix": "bro", "body": "below right of=$0" },
-  "draws": { "prefix": "draws", "body": "\\draw ($1) -- ($2)$0;" },
-  "xer": { "prefix": "xer", "body": "$1 \\in \\mathbb{R}$0" },
-  "dydx": { "prefix": "dydx", "body": "\\frac{dy}{dx}$0" },
-  "bo": { "prefix": "bo", "body": "below of=$0" },
-  "alo": { "prefix": "alo", "body": "above left of=$0" },
-  "makebox": {
-    "prefix": "makebox",
-    "body": "\\makebox[$1\\textwidth][l]{$2}$0"
-  },
-  "fillb": { "prefix": "fillb", "body": "fill=black,$0" },
-  "cr": { "prefix": "cr", "body": "^3$0" },
-  "lim": { "prefix": "lim", "body": "\\lim_{$1 \\to $2} $0" },
-  "gp3": {
-    "prefix": "gp3",
-    "body": [
-      "\\begin{tikzpicture}[",
-      "\tnode distance = {15mm},",
-      "\tthick,",
-      "\tmain/.style = {draw, circle}",
-      "]",
-      "\t\\node[main] (1) [fill=black] {};",
-      "\t\\node[main] (2) [fill=black,right of=1] {};",
-      "\t\\node[main] (3) [fill=black,right of=2] {};",
-      "\t\\draw (1) -- (2);",
-      "\t\\draw (2) -- (3);",
-      "\\end{tikzpicture}",
-      "\\caption{\\(P _{3}\\)}"
-    ]
-  },
-  "int": { "prefix": "int", "body": "\\int $1\\,$0" },
-  "nk": { "prefix": "nk", "body": "\\binom{$1}{$2}$0" },
-  "sum": { "prefix": "sum", "body": "\\sum_{$1}^{$2}$0" },
-  "ddx": { "prefix": "ddx", "body": "\\frac{d}{dx}$0" },
-  "fig": {
-    "prefix": "fig",
-    "body": ["\\begin{figure}[htbp]", "\t$1", "\\end{figure}$0"]
-  },
-  "mk": { "prefix": "mk", "body": "\\($1\\)$0" },
-  "pi/": { "prefix": "pi/", "body": "\\frac{$1\\pi}{$2}$0" },
-  "splits": {
-    "prefix": "splits",
-    "body": ["% SPLIT SOLUTION $1 START", "$2", "% SPLIT SOLUTION $1 END"]
-  },
-  "lo": { "prefix": "lo", "body": "left of=$0" },
-  "td": { "prefix": "td", "body": "^{$2}$0" },
   "mpage": {
-    "prefix": "mpage",
     "body": [
       "\\begin{minipage}{$1\\textwidth}",
       "\t\\centering",
       "\t$2",
       "\\end{minipage}$0"
-    ]
+    ],
+    "prefix": "mpage"
   },
-  "sub": { "prefix": "sub", "body": "_{$1}$0" },
-  "dm": { "prefix": "dm", "body": ["\\[", "\t$1", "\\]", "$0"] },
-  "sr": { "prefix": "sr", "body": "^2$0" },
-  "begin": { "prefix": "begin", "body": ["\\begin{$1}", "\t$0", "\\end{$1}"] },
-  "intab": { "prefix": "intab", "body": "\\int_{$1}^{$2} $3\\,$0" },
-  "aro": { "prefix": "aro", "body": "above right of=$0" },
+  "bro": { "body": "below right of=$0", "prefix": "bro" },
+  "dm": { "body": ["\\[", "\t$1", "\\]", "$0"], "prefix": "dm" },
+  "draws": { "body": "\\draw ($1) -- ($2)$0;", "prefix": "draws" },
+  "cos": { "body": "\\cos$1($2)$0", "prefix": "cos" },
+  "tan": { "body": "\\tan$1($2)$0", "prefix": "tan" },
+  "edge": {
+    "body": "node [midway,fill=none,label=$1:{$2}] {}",
+    "prefix": "edge"
+  },
+  "sum": { "body": "\\sum_{$1}^{$2}$0", "prefix": "sum" },
+  "node": { "body": ["\\node[main] ($1) [$2] {$3};", "$0"], "prefix": "node" },
   "gk4": {
-    "prefix": "gk4",
     "body": [
       "\\begin{tikzpicture}[",
       "\tnode distance = {$1mm},",
@@ -131,11 +39,109 @@
       "\\end{tikzpicture}",
       "\\caption{\\(K _{4}\\)}",
       "$0"
-    ]
+    ],
+    "prefix": "gk4"
+  },
+  "bo": { "body": "below of=$0", "prefix": "bo" },
+  "graph": {
+    "body": [
+      "\\begin{tikzpicture}[",
+      "\tnode distance = {$1mm},",
+      "\tthick,",
+      "\tmain/.style = {draw, circle}",
+      "]",
+      "\t$2",
+      "\\end{tikzpicture}$0"
+    ],
+    "prefix": "graph"
   },
   "splitp": {
-    "prefix": "splitp",
-    "body": ["% SPLIT PROBLEM $1 START", "$2", "% SPLIT PROBLEM $1 END"]
-  }
+    "body": ["% SPLIT PROBLEM $1 START", "$2", "% SPLIT PROBLEM $1 END"],
+    "prefix": "splitp"
+  },
+  "cot": { "body": "\\cot$1($2)$0", "prefix": "cot" },
+  "xer": { "body": "$1 \\in \\mathbb{R}$0", "prefix": "xer" },
+  "//": { "body": "\\frac{$1}{$2}$0", "prefix": "//" },
+  "dydx": { "body": "\\frac{dy}{dx}$0", "prefix": "dydx" },
+  "ro": { "body": "right of=$0", "prefix": "ro" },
+  "td": { "body": "^{$2}$0", "prefix": "td" },
+  "alo": { "body": "above left of=$0", "prefix": "alo" },
+  "csc": { "body": "\\csc$1($2)$0", "prefix": "csc" },
+  "makebox": {
+    "body": "\\makebox[$1\\textwidth][l]{$2}$0",
+    "prefix": "makebox"
+  },
+  "sin": { "body": "\\sin$1($2)$0", "prefix": "sin" },
+  "fillb": { "body": "fill=black,$0", "prefix": "fillb" },
+  "intab": { "body": "\\int_{$1}^{$2} $3\\,$0", "prefix": "intab" },
+  "mcl": { "body": "\\mathcal{$1}$0", "prefix": "mcl" },
+  "lim": { "body": "\\lim_{$1 \\to $2} $0", "prefix": "lim" },
+  "ao": { "body": "above of=$0", "prefix": "ao" },
+  "line": { "body": ["\\rule{\\textwidth}{0.4pt}", "$0"], "prefix": "line" },
+  "drawc": {
+    "body": ["\\draw ($1) to [out={$2},in={$3},looseness=$4] ($5);", "$0"],
+    "prefix": "drawc"
+  },
+  "aro": { "body": "above right of=$0", "prefix": "aro" },
+  "bf": { "body": "\\textbf{$1}$0", "prefix": "bf" },
+  "gc4": {
+    "body": [
+      "\\begin{tikzpicture}[",
+      "\tnode distance = {15mm},",
+      "\tthick,",
+      "\tmain/.style = {draw, circle}",
+      "]",
+      "\t\\node[main] (1) [fill=black] {};",
+      "\t\\node[main] (2) [fill=black,right of=1] {};",
+      "\t\\node[main] (3) [fill=black,below of=1] {};",
+      "\t\\node[main] (4) [fill=black,below of=2] {};",
+      "\t\\draw (1) -- (2);",
+      "\t\\draw (2) -- (4);",
+      "\t\\draw (1) -- (3);",
+      "\t\\draw (3) -- (4);",
+      "\\end{tikzpicture}",
+      "\\caption{\\(C _{4}\\)}"
+    ],
+    "prefix": "gc4"
+  },
+  "nk": { "body": "\\binom{$1}{$2}$0", "prefix": "nk" },
+  "sec": { "body": "\\sec$1($2)$0", "prefix": "sec" },
+  "mk": { "body": "\\($1\\)$0", "prefix": "mk" },
+  "ddx": { "body": "\\frac{d}{dx}$0", "prefix": "ddx" },
+  "int": { "body": "\\int $1\\,$0", "prefix": "int" },
+  "fig": {
+    "body": ["\\begin{figure}[htbp]", "\t$1", "\\end{figure}$0"],
+    "prefix": "fig"
+  },
+  "sub": { "body": "_{$1}$0", "prefix": "sub" },
+  "gp3": {
+    "body": [
+      "\\begin{tikzpicture}[",
+      "\tnode distance = {15mm},",
+      "\tthick,",
+      "\tmain/.style = {draw, circle}",
+      "]",
+      "\t\\node[main] (1) [fill=black] {};",
+      "\t\\node[main] (2) [fill=black,right of=1] {};",
+      "\t\\node[main] (3) [fill=black,right of=2] {};",
+      "\t\\draw (1) -- (2);",
+      "\t\\draw (2) -- (3);",
+      "\\end{tikzpicture}",
+      "\\caption{\\(P _{3}\\)}"
+    ],
+    "prefix": "gp3"
+  },
+  "compl": { "body": "\\overline{$1}$0", "prefix": "compl" },
+  "pi/": { "body": "\\frac{$1\\pi}{$2}$0", "prefix": "pi/" },
+  "lo": { "body": "left of=$0", "prefix": "lo" },
+  "splits": {
+    "body": ["% SPLIT SOLUTION $1 START", "$2", "% SPLIT SOLUTION $1 END"],
+    "prefix": "splits"
+  },
+  "sr": { "body": "^2$0", "prefix": "sr" },
+  "cr": { "body": "^3$0", "prefix": "cr" },
+  "sqrt/": { "body": "\\frac{\\sqrt{$1}}{$2}$0", "prefix": "sqrt/" },
+  "blo": { "body": "below left of=$0", "prefix": "blo" },
+  "begin": { "body": ["\\begin{$1}", "\t$0", "\\end{$1}"], "prefix": "begin" }
 }
 
