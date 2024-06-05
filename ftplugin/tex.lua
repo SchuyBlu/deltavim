@@ -13,7 +13,7 @@ local function file_exists(filename)
 	end
 end
 
-function INKSCAPE()
+function inkscape_run()
 	local filename = vim.fn.getreg('f')
 	
 	filename = filename:gsub("%s+", "-")
@@ -30,6 +30,20 @@ function INKSCAPE()
 	local cmd = "inkscape --actions=" .. options
 	os.execute(cmd)
 	os.execute("inkscape " .. path)
+end
+
+local function tex_format()
+	local filename = vim.fn.getreg('f'):gsub("%s+", "-")
+	local path = vim.fn.getcwd() .. "/figures/" .. filename .. ".svg"
+
+	local tex_stream = string.format(
+	"\\begin{figure}[htbp]",
+	"\\centering{",
+	"	\\resizebox{75mm}{!}{\\input{./figures/" .. path .. "}}",
+	"}",
+	"\\end{figure}"
+	)
+	return tex_stream
 end
 
 local status, which_key = pcall(require, "which-key")
@@ -54,12 +68,8 @@ if status then
         s = { "<cmd>VimtexStop<cr>", "Stop Compilation" },
         e = { "<cmd>VimtexErrors<cr>", "Show Errors" },
         l = { "<cmd>VimtexClean<cr>", "Clean Auxiliary Files" },
-		f = { "<cmd>let @f = getline('.') | lua INKSCAPE() <cr>",
-			  "Open filename in inkscape."
-		  },
 	}
 
 	which_key.register(mappings, opts)
 end
-
 

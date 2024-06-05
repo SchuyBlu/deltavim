@@ -10,6 +10,7 @@ You need the following dependencies installed in order to run:
 - [fd](https://github.com/sharkdp/fd?tab=readme-ov-file)
 - [LazyGit](https://github.com/jesseduffield/lazygit)
 - [Latex](https://www.latex-project.org/get/)
+- [inkscape](https://inkscape.org/)
 
 Install these according to the instructions provided for your operating system.
 

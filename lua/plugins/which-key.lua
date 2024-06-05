@@ -105,6 +105,18 @@ function M.config()
 		MYGUIBG = nil
 	end
 
+	function M.format_buffer()
+		if pcall(require, "conform") then
+			-- conform is available, use it for formatting
+			vim.cmd("lua require('conform').format({ lsp_fallback = true, async = false, timeout_ms = 500 })")
+		else
+			-- conform is not available, use LSP formatting
+			vim.lsp.buf.format({ async = false })
+		end
+	end
+
+	vim.api.nvim_create_user_command("FormatBuffer", M.format_buffer, {})
+
 	local base_mappings = {
 		["<F2>"] = { "<cmd>lua toggle_transparency()<CR>", "Toggles transparent view."},
 		["<F4>"] = { "<cmd>lua _TMUX_TOGGLE()<CR>", "Toggle the terminal" },
@@ -158,6 +170,10 @@ function M.config()
 			f = { "<cmd>IconPickerNormal<CR>", "Find icons" },
 			y = { "<cmd>IconPickerYank<CR>", "Yank icon" },
 		},
+		l = {
+			name = "Language",
+			f = { "<cmd>FormatBuffer<cr>", "Format file."}
+		}
 	}
 
 	which_key.register(base_mappings, base_opts)
