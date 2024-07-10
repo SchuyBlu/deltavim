@@ -28,6 +28,8 @@ function M.config()
 			"json",
 			"markdown",
 			"markdown_inline",
+			"latex",
+			"dockerfile",
 		},
 		sync_install = true,
 		auto_install = true,
