@@ -1,6 +1,5 @@
 local M = {
 	"CRAG666/code_runner.nvim",
-	event = "VeryLazy",
 	dependencies = "nvim-lua/plenary.nvim",
 }
 

@@ -1,5 +1,6 @@
 local M = {
 	"folke/which-key.nvim",
+	dependencies = { "echasnovski/mini.icons" },
 	event = "VeryLazy",
 	init = function()
 		vim.o.timeout = true
@@ -79,32 +80,6 @@ function M.config()
 		vim.cmd.bd()
 	end
 
-	local function non_standard_buffer_open()
-		local buffers = vim.api.nvim_list_bufs()
-
-		for _, id in ipairs(buffers) do
-			local buftype = vim.bo[id].buftype
-			if buftype ~= "" then return true end
-		end
-		return false
-	end
-
-	MYGUIBG=nil
-	function toggle_transparency()
-		if non_standard_buffer_open() then
-			require("notify")("Please close non-standard buffers.")
-			return
-		end
-
-		if MYGUIBG == nil then
-			MYGUIBG = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Normal")), "bg#")
-			vim.api.nvim_set_hl(0, "Normal", { bg = nil })
-			return
-		end
-		vim.api.nvim_set_hl(0, "Normal", { bg = MYGUIBG })
-		MYGUIBG = nil
-	end
-
 	function M.format_buffer()
 		if pcall(require, "conform") then
 			-- conform is available, use it for formatting
@@ -117,68 +92,55 @@ function M.config()
 
 	vim.api.nvim_create_user_command("FormatBuffer", M.format_buffer, {})
 
-	local base_mappings = {
-		["<F2>"] = { "<cmd>lua toggle_transparency()<CR>", "Toggles transparent view."},
-		["<F4>"] = { "<cmd>lua _TMUX_TOGGLE()<CR>", "Toggle the terminal" },
-		["<F5>"] = { "<cmd>NvimTreeToggle<CR>", "Toggle tree view" },
-		["<F9>"] = { " <cmd>RunCode<CR>", "Run code" },
-		["<F10>"] = {" <cmd>RunProject<CR>", "Run project" },
-	}
+	which_key.add({
+		{ "<F4>", "<cmd>lua _TMUX_TOGGLE<CR>", desc = "Toggle the terminal" },
+		{ "<F5>", "<cmd>NvimTreeToggle<CR>", desc = "Toggle tree view" },
+		{ "<F9>", " <cmd>RunCode<CR>", desc = "Run code" },
+		{ "<F10>", " <cmd>RunProject<CR>", desc = "Run project" },
 
-	local leader_mappings = {
-		c = { "<cmd>lua close_focus_buffer()<CR>", "Close buffer" }, -- Close whatever buffer you're within
-		C = { "<cmd>lua close_all_buffers_except_current()<CR>", "Close all buffers except current." },
-		f = {
-			name = "Files",
-			f = { "<cmd>Telescope find_files<CR>", "Find files" },
-			e = { "<cmd>Oil --float<CR>", "Explore files" },
-			p = { "<cmd>Telescope grep_string<CR>", "Find path substring" },
-			b = { "<cmd>Telescope file_browser<CR>", "File browser" },
-			k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
-			m = { "<cmd>Telescope man_pages<CR>", "Man pages" },
-			t = { "<cmd>Telescope live_grep<CR>", "Find text" },
-			r = { "<cmd>Telescope lsp_references<CR>", "Go to references" },
-			d = { "<cmd>Telescope lsp_definitions<CR>", "Go to definitions" },
-			i = { "<cmd>Telescope lsp_implementations<CR>", "Go to implementations" },
-		},
-		t = {
-			name = "Tree Explorer",
-			t = { "<cmd>NvimTreeToggle<CR>", "Toggle tree view" },
-			f = { "<cmd>NvimTreeFindFile<CR>", "Find File in tree" },
-			c = { "<cmd>NvimTreeCollapse<CR>", "Collapse tree recursively" },
-		},
-		p = {
-			name = "Tab Pages",
-			l = { "<cmd>BufferLineCycleNext<CR>", "Move to the next tab" },
-			h = { "<cmd>BufferLineCyclePrev<CR>", "Move the the previous tab" },
-		},
-		g = {
-			name = "Git Commands",
-			b = { "<cmd>Gitsigns toggle_current_line_blame<CR>", "Toggle Git Blame" },
-			B = { "<cmd>Telescope git_branches<CR>", "Checkout branches" },
-			c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
-			l = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Toggle lazygit" },
-		},
-		s = {
-			name = "Show",
-			s = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Toggle signature" },
-			d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Toggle definition" },
-			-- m = { "<cmd>lua _TOP_TOGGLE()<CR>", "Toggle top" },
-		},
-		i = {
-			name = "Icons",
-			f = { "<cmd>IconPickerNormal<CR>", "Find icons" },
-			y = { "<cmd>IconPickerYank<CR>", "Yank icon" },
-		},
-		l = {
-			name = "Language",
-			f = { "<cmd>FormatBuffer<cr>", "Format file."}
-		}
-	}
+		{ "<leader>c", "<cmd>lua close_focus_buffer()<CR>", desc = "Close buffer" },
+		{ "<leader>C", "<cmd>lua close_all_buffers_except_current()<CR>", desc = "Close all buffers except current." },
 
-	which_key.register(base_mappings, base_opts)
-	which_key.register(leader_mappings, leader_opts)
+		{ "<leader>f", group = "Files", nowait = true, remap = false },
+		{ "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files" },
+		{ "<leader>fe", "<cmd>Oil --float<CR>", desc = "Explore files" },
+		{ "<leader>fp", "<cmd>Telescope grep_string<CR>", desc = "Find path substring" },
+		{ "<leader>fb", "<cmd>Telescope file_browser<CR>", desc = "File browser" },
+		{ "<leader>fk", "<cmd>Telescope keymaps<CR>", desc = "Keymaps" },
+		{ "<leader>fm", "<cmd>Telescope man_pages<CR>", desc = "Man pages" },
+		{ "<leader>ft", "<cmd>Telescope live_grep<CR>", desc = "Find text" },
+		{ "<leader>fr", "<cmd>Telescope lsp_references<CR>", desc = "Go to references" },
+		{ "<leader>fd", "<cmd>Telescope lsp_definitions<CR>", desc = "Go to definitions" },
+		{ "<leader>fi", "<cmd>Telescope lsp_implementations<CR>", desc = "Go to implementations" },
+
+		{ "<leader>t", group = "Tree Explorer", nowait = true, remap = false },
+		{ "<leader>tt", "<cmd>NvimTreeToggle<CR>", desc = "Toggle tree view" },
+		{ "<leader>tf", "<cmd>NvimTreeFindFile<CR>", desc = "Find File in tree" },
+		{ "<leader>tc", "<cmd>NvimTreeCollapse<CR>", desc = "Collapse tree recursively" },
+
+		{ "<leader>p", group = "Tab Pages", nowait = true, remap = false },
+		{ "<leader>pl", "<cmd>BufferLineCycleNext<CR>", desc = "Move to the next tab" },
+		{ "<leader>ph", "<cmd>BufferLineCyclePrev<CR>", desc = "Move the the previous tab" },
+
+		{ "<leader>g", group = "Git Commands", nowait = true, remap = false },
+		{ "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "Toggle Git Blame" },
+		{ "<leader>gB", "<cmd>Telescope git_branches<CR>", desc = "Checkout branches" },
+		{ "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Checkout commit" },
+		{ "<leader>gl", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", desc = "Toggle lazygit" },
+
+		{ "<leader>s", group = "Show", nowait = true, remap = false },
+		{ "<leader>ss", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Toggle signature" },
+		{ "<leader>sd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Toggle definition" },
+
+		{ "<leader>i", group = "Icons", nowait = true, remap = false },
+		{ "<leader>if", "<cmd>IconPickerNormal<CR>", desc = "Find icons" },
+		{ "<leader>iy", "<cmd>IconPickerYank<CR>", desc = "Yank icon" },
+
+		{ "<leader>l", group = "Language", nowait = true, remap = false },
+		{ "<leader>lf", "<cmd>FormatBuffer<cr>", desc = "Format file."}
+
+
+	})
 end
 
 return M
-
