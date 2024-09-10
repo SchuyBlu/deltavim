@@ -1,6 +1,5 @@
 local M = {
 	"NeogitOrg/neogit",
-	version = "v0.0.1",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope.nvim",

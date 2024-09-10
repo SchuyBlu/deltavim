@@ -32,7 +32,7 @@ function M.config()
 		return ok, err
 	end
 
-	function _TMUX_TOGGLE()
+	local function _TMUX_TOGGLE()
 		local venv = Terminal:new({
 			cmd = "tmux",
 			hidden = true,
@@ -46,6 +46,8 @@ function M.config()
 		})
 		venv:toggle()
 	end
+
+	vim.api.nvim_create_user_command("TmuxToggle", _TMUX_TOGGLE, {})
 
 	function _LAZYGIT_TOGGLE()
 		local lazy = Terminal:new({

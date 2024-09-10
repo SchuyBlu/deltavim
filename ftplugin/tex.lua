@@ -48,28 +48,19 @@ end
 
 local status, which_key = pcall(require, "which-key")
 if status then
-	local opts = {
-		mode = "n",
-		prefix = "<localleader>",
-		buffer = nil,
-		silent = true,
-		noremap = true,
-		nowait = false,
-		expr = false
-	}
 
 	local mappings = {
-        name = "VimTeX",
-        p = { "<cmd>VimtexCompile<cr>", "Compile and Preview" },
-        i = { "<cmd>VimtexInfo<cr>", "VimTeX Info" },
-        t = { "<cmd>VimtexTocToggle<cr>", "Toggle ToC" },
-        v = { "<cmd>VimtexView<cr>", "View PDF" },
-        r = { "<cmd>VimtexReload<cr>", "Reload" },
-        s = { "<cmd>VimtexStop<cr>", "Stop Compilation" },
-        e = { "<cmd>VimtexErrors<cr>", "Show Errors" },
-        l = { "<cmd>VimtexClean<cr>", "Clean Auxiliary Files" },
+		{ "<localleader>", expr = false, group = "VimTeX", nowait = false, remap = false },
+		{ "<localleader>e", "<cmd>VimtexErrors<cr>", desc = "Show Errors", expr = false, nowait = false, remap = false },
+		{ "<localleader>i", "<cmd>VimtexInfo<cr>", desc = "VimTeX Info", expr = false, nowait = false, remap = false },
+		{ "<localleader>l", "<cmd>VimtexClean<cr>", desc = "Clean Auxiliary Files", expr = false, nowait = false, remap = false },
+		{ "<localleader>p", "<cmd>VimtexCompile<cr>", desc = "Compile and Preview", expr = false, nowait = false, remap = false },
+		{ "<localleader>r", "<cmd>VimtexReload<cr>", desc = "Reload", expr = false, nowait = false, remap = false },
+		{ "<localleader>s", "<cmd>VimtexStop<cr>", desc = "Stop Compilation", expr = false, nowait = false, remap = false },
+		{ "<localleader>t", "<cmd>VimtexTocToggle<cr>", desc = "Toggle ToC", expr = false, nowait = false, remap = false },
+		{ "<localleader>v", "<cmd>VimtexView<cr>", desc = "View PDF", expr = false, nowait = false, remap = false },
 	}
 
-	which_key.register(mappings, opts)
+	which_key.add(mappings)
 end
 

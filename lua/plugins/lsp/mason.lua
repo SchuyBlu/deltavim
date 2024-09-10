@@ -30,6 +30,9 @@ end
 local opts = {}
 
 for _, server in pairs(servers) do
+	if server == "tsserver" then
+		server = "ts_ls"
+	end
 	opts = {
 		on_attach = require("plugins.lsp.handlers").on_attach,
 		capabilities = require("plugins.lsp.handlers").capabilities

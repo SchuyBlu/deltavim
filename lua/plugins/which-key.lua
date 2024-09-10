@@ -42,22 +42,6 @@ function M.config()
 	leader_opts.prefix = "<leader>"
 
 
-	function close_all_buffers_except_current()
-		local current_buf = vim.api.nvim_get_current_buf()
-		local buffers = vim.api.nvim_list_bufs()
-
-		for _, buf_id in ipairs(buffers) do
-			if vim.api.nvim_buf_is_loaded(buf_id)
-				and vim.api.nvim_buf_is_valid(buf_id)
-				and buf_id ~= current_buf then
-				local buftype = vim.bo[buf_id].buftype
-				if buftype ~= "terminal" then
-					vim.api.nvim_buf_delete(buf_id, { force = false })
-				end
-			end
-		end
-	end
-
 	local function list_number_of_normal_buffers()
 		local buffers = vim.api.nvim_list_bufs()
 		local count = 0
@@ -93,13 +77,16 @@ function M.config()
 	vim.api.nvim_create_user_command("FormatBuffer", M.format_buffer, {})
 
 	which_key.add({
-		{ "<F4>", "<cmd>lua _TMUX_TOGGLE<CR>", desc = "Toggle the terminal" },
+		{ "<F4>", "<cmd>TmuxToggle<CR>", desc = "Toggle the terminal" },
 		{ "<F5>", "<cmd>NvimTreeToggle<CR>", desc = "Toggle tree view" },
 		{ "<F9>", " <cmd>RunCode<CR>", desc = "Run code" },
 		{ "<F10>", " <cmd>RunProject<CR>", desc = "Run project" },
+		{ "<leader>]", "<cmd>BufferLineCycleNext<CR>", desc = "Move to the next tab" },
+		{ "<leader>[", "<cmd>BufferLineCyclePrev<CR>", desc = "Move the the previous tab" },
+		{ "<leader>p", "<cmd>PasteImage<CR>", desc = "Paste image from system clipboard."},
 
 		{ "<leader>c", "<cmd>lua close_focus_buffer()<CR>", desc = "Close buffer" },
-		{ "<leader>C", "<cmd>lua close_all_buffers_except_current()<CR>", desc = "Close all buffers except current." },
+		{ "<leader>C", "<cmd>Bclose<CR>", desc = "Close all buffers except current." },
 
 		{ "<leader>f", group = "Files", nowait = true, remap = false },
 		{ "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files" },
@@ -118,10 +105,6 @@ function M.config()
 		{ "<leader>tf", "<cmd>NvimTreeFindFile<CR>", desc = "Find File in tree" },
 		{ "<leader>tc", "<cmd>NvimTreeCollapse<CR>", desc = "Collapse tree recursively" },
 
-		{ "<leader>p", group = "Tab Pages", nowait = true, remap = false },
-		{ "<leader>pl", "<cmd>BufferLineCycleNext<CR>", desc = "Move to the next tab" },
-		{ "<leader>ph", "<cmd>BufferLineCyclePrev<CR>", desc = "Move the the previous tab" },
-
 		{ "<leader>g", group = "Git Commands", nowait = true, remap = false },
 		{ "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "Toggle Git Blame" },
 		{ "<leader>gB", "<cmd>Telescope git_branches<CR>", desc = "Checkout branches" },
@@ -138,8 +121,6 @@ function M.config()
 
 		{ "<leader>l", group = "Language", nowait = true, remap = false },
 		{ "<leader>lf", "<cmd>FormatBuffer<cr>", desc = "Format file."}
-
-
 	})
 end
 

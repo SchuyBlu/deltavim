@@ -1,1 +1,179 @@
-{"box":{"body":["\\medskip","\\begin{framed}","\t\\textbf{$1}","\t$2","\\end{framed}","$0"],"prefix":"box"},"bo":{"body":"below of=$0","prefix":"bo"},"drawc":{"body":["\\draw ($1) to [out={$2},in={$3},looseness=$4] ($5);","$0"],"prefix":"drawc"},"gk4":{"body":["\\begin{tikzpicture}[","\tnode distance = {$1mm},","\tthick,","\tmain\/.style = {draw, circle}","]","\t\\node[main] (1) [fill=black] {};","\t\\node[main] (2) [fill=black,right of=1] {};","\t\\node[main] (3) [fill=black,below of=1] {};","\t\\node[main] (4) [fill=black,below of=2] {};","\t\\draw (1) -- (2);","\t\\draw (1) -- (3);","\t\\draw (1) -- (4);","\t\\draw (2) -- (3);","\t\\draw (2) -- (4);","\t\\draw (3) -- (4);","\\end{tikzpicture}","\\caption{\\(K _{4}\\)}","$0"],"prefix":"gk4"},"lim":{"body":"\\lim_{$1 \\to $2} $0","prefix":"lim"},"csc":{"body":"\\csc($1)$0","prefix":"csc"},"ddx":{"body":"\\frac{d}{dx}$0","prefix":"ddx"},"node":{"body":["\\node[main] ($1) [$2] {$3};","$0"],"prefix":"node"},"compl":{"body":"\\overline{$1}$0","prefix":"compl"},"sr":{"body":"^2$0","prefix":"sr"},"td":{"body":"^{$2}$0","prefix":"td"},"pi\/":{"body":"\\frac{$1\\pi}{$2}$0","prefix":"pi\/"},"intab":{"body":"\\int_{$1}^{$2} $3\\,$0","prefix":"intab"},"edge":{"body":"node [midway,fill=none,label=$1:{$2}] {}","prefix":"edge"},"bro":{"body":"below right of=$0","prefix":"bro"},"fillb":{"body":"fill=black,$0","prefix":"fillb"},"xer":{"body":"$1 \\in \\mathbb{R}$0","prefix":"xer"},"\/\/":{"body":"\\frac{$1}{$2}$0","prefix":"\/\/"},"cos":{"body":"\\cos($1)$0","prefix":"cos"},"makebox":{"body":"\\makebox[$1\\textwidth][l]{$2}$0","prefix":"makebox"},"aro":{"body":"above right of=$0","prefix":"aro"},"sqrt":{"body":"\\sqrt{$1}$0","prefix":"sqrt"},"sqrt\/":{"body":"\\frac{\\sqrt{$1}}{$2}$0","prefix":"sqrt\/"},"bpr":{"body":"\\left($1\\right)$0","prefix":"bpr"},"sin":{"body":"\\sin($1)$0","prefix":"sin"},"-":{"body":["\\item[\\(\\bullet\\)]","\t$0"],"prefix":"-"},"tan":{"body":"\\tan($1)$0","prefix":"tan"},"asin":{"body":"\\arcsin($1)$0","prefix":"asin"},"lo":{"body":"left of=$0","prefix":"lo"},"mk":{"body":"\\($1\\)$0","prefix":"mk"},"gc4":{"body":["\\begin{tikzpicture}[","\tnode distance = {15mm},","\tthick,","\tmain\/.style = {draw, circle}","]","\t\\node[main] (1) [fill=black] {};","\t\\node[main] (2) [fill=black,right of=1] {};","\t\\node[main] (3) [fill=black,below of=1] {};","\t\\node[main] (4) [fill=black,below of=2] {};","\t\\draw (1) -- (2);","\t\\draw (2) -- (4);","\t\\draw (1) -- (3);","\t\\draw (3) -- (4);","\\end{tikzpicture}","\\caption{\\(C _{4}\\)}"],"prefix":"gc4"},"int":{"body":"\\int $1\\,$0","prefix":"int"},"begin":{"body":["\\begin{$1}","\t$0","\\end{$1}"],"prefix":"begin"},"it":{"body":"\\textit{$1}$0","prefix":"it"},"ln":{"body":"\\ln|$1|$0","prefix":"ln"},"subs":{"body":"\\fakesubsection{$1}$0","prefix":"subs"},"ao":{"body":"above of=$0","prefix":"ao"},"dydx":{"body":"\\frac{dy}{dx}$0","prefix":"dydx"},"dm":{"body":["\\[","\t$1","\\]","$0"],"prefix":"dm"},"nk":{"body":"\\binom{$1}{$2}$0","prefix":"nk"},"atan":{"body":"\\arctan($1)$0","prefix":"atan"},"graph":{"body":["\\begin{tikzpicture}[","\tnode distance = {$1mm},","\tthick,","\tmain\/.style = {draw, circle}","]","\t$2","\\end{tikzpicture}$0"],"prefix":"graph"},"fig":{"body":["\\begin{figure}[htbp]","\t$1","\\end{figure}$0"],"prefix":"fig"},"ul":{"body":["\\begin{enumerate}","\t\\item[\\(\\bullet\\)]\t","\t\t$1","\\end{enumerate}","$0"],"prefix":"ul"},"sub":{"body":"_{$1}$0","prefix":"sub"},"img":{"body":"\\includegraphics[scale=$1]{$2}$0","prefix":"img"},"splitp":{"body":["% SPLIT PROBLEM $1 START","$2","% SPLIT PROBLEM $1 END"],"prefix":"splitp"},"gp3":{"body":["\\begin{tikzpicture}[","\tnode distance = {15mm},","\tthick,","\tmain\/.style = {draw, circle}","]","\t\\node[main] (1) [fill=black] {};","\t\\node[main] (2) [fill=black,right of=1] {};","\t\\node[main] (3) [fill=black,right of=2] {};","\t\\draw (1) -- (2);","\t\\draw (2) -- (3);","\\end{tikzpicture}","\\caption{\\(P _{3}\\)}"],"prefix":"gp3"},"alo":{"body":"above left of=$0","prefix":"alo"},"bf":{"body":"\\textbf{$1}$0","prefix":"bf"},"blo":{"body":"below left of=$0","prefix":"blo"},"sec":{"body":"\\sec($1)$0","prefix":"sec"},"ro":{"body":"right of=$0","prefix":"ro"},"draws":{"body":"\\draw ($1) -- ($2)$0;","prefix":"draws"},"cr":{"body":"^3$0","prefix":"cr"},"mcl":{"body":"\\mathcal{$1}$0","prefix":"mcl"},"cot":{"body":"\\cot($1)$0","prefix":"cot"},"mpage":{"body":["\\begin{minipage}{$1\\textwidth}","\t\\centering","\t$2","\\end{minipage}$0"],"prefix":"mpage"},"sum":{"body":"\\sum_{$1}^{$2}$0","prefix":"sum"},"line":{"body":["\\rule{\\textwidth}{0.4pt}","$0"],"prefix":"line"},"splits":{"body":["% SPLIT SOLUTION $1 START","$2","% SPLIT SOLUTION $1 END"],"prefix":"splits"},"xez":{"body":"$1 \\in \\mathbb{Z}$0","prefix":"xez"},"item":{"body":["\\item[$1]","\t$0"],"prefix":"item"}}
+{
+  "box": {
+    "body": [
+      "\\medskip",
+      "\\begin{framed}",
+      "\t\\textbf{$1}",
+      "\t$2",
+      "\\end{framed}",
+      "$0"
+    ],
+    "prefix": "box"
+  },
+  "bo": { "body": "below of=$0", "prefix": "bo" },
+  "drawc": {
+    "body": ["\\draw ($1) to [out={$2},in={$3},looseness=$4] ($5);", "$0"],
+    "prefix": "drawc"
+  },
+  "gk4": {
+    "body": [
+      "\\begin{tikzpicture}[",
+      "\tnode distance = {$1mm},",
+      "\tthick,",
+      "\tmain/.style = {draw, circle}",
+      "]",
+      "\t\\node[main] (1) [fill=black] {};",
+      "\t\\node[main] (2) [fill=black,right of=1] {};",
+      "\t\\node[main] (3) [fill=black,below of=1] {};",
+      "\t\\node[main] (4) [fill=black,below of=2] {};",
+      "\t\\draw (1) -- (2);",
+      "\t\\draw (1) -- (3);",
+      "\t\\draw (1) -- (4);",
+      "\t\\draw (2) -- (3);",
+      "\t\\draw (2) -- (4);",
+      "\t\\draw (3) -- (4);",
+      "\\end{tikzpicture}",
+      "\\caption{\\(K _{4}\\)}",
+      "$0"
+    ],
+    "prefix": "gk4"
+  },
+  "lim": { "body": "\\lim_{$1 \\to $2} $0", "prefix": "lim" },
+  "csc": { "body": "\\csc($1)$0", "prefix": "csc" },
+  "ddx": { "body": "\\frac{d}{dx}$0", "prefix": "ddx" },
+  "node": { "body": ["\\node[main] ($1) [$2] {$3};", "$0"], "prefix": "node" },
+  "compl": { "body": "\\overline{$1}$0", "prefix": "compl" },
+  "sr": { "body": "^2$0", "prefix": "sr" },
+  "td": { "body": "^{$2}$0", "prefix": "td" },
+  "pi/": { "body": "\\frac{$1\\pi}{$2}$0", "prefix": "pi/" },
+  "intab": { "body": "\\int_{$1}^{$2} $3\\,$0", "prefix": "intab" },
+  "edge": {
+    "body": "node [midway,fill=none,label=$1:{$2}] {}",
+    "prefix": "edge"
+  },
+  "bro": { "body": "below right of=$0", "prefix": "bro" },
+  "fillb": { "body": "fill=black,$0", "prefix": "fillb" },
+  "xer": { "body": "$1 \\in \\mathbb{R}$0", "prefix": "xer" },
+  "//": { "body": "\\frac{$1}{$2}$0", "prefix": "//" },
+  "cos": { "body": "\\cos($1)$0", "prefix": "cos" },
+  "makebox": {
+    "body": "\\makebox[$1\\textwidth][l]{$2}$0",
+    "prefix": "makebox"
+  },
+  "aro": { "body": "above right of=$0", "prefix": "aro" },
+  "sqrt": { "body": "\\sqrt{$1}$0", "prefix": "sqrt" },
+  "sqrt/": { "body": "\\frac{\\sqrt{$1}}{$2}$0", "prefix": "sqrt/" },
+  "bpr": { "body": "\\left($1\\right)$0", "prefix": "bpr" },
+  "sin": { "body": "\\sin($1)$0", "prefix": "sin" },
+  "-": { "body": ["\\item[\\(\\bullet\\)]", "\t$0"], "prefix": "-" },
+  "tan": { "body": "\\tan($1)$0", "prefix": "tan" },
+  "asin": { "body": "\\arcsin($1)$0", "prefix": "asin" },
+  "lo": { "body": "left of=$0", "prefix": "lo" },
+  "mk": { "body": "\\($1\\)$0", "prefix": "mk" },
+  "gc4": {
+    "body": [
+      "\\begin{tikzpicture}[",
+      "\tnode distance = {15mm},",
+      "\tthick,",
+      "\tmain/.style = {draw, circle}",
+      "]",
+      "\t\\node[main] (1) [fill=black] {};",
+      "\t\\node[main] (2) [fill=black,right of=1] {};",
+      "\t\\node[main] (3) [fill=black,below of=1] {};",
+      "\t\\node[main] (4) [fill=black,below of=2] {};",
+      "\t\\draw (1) -- (2);",
+      "\t\\draw (2) -- (4);",
+      "\t\\draw (1) -- (3);",
+      "\t\\draw (3) -- (4);",
+      "\\end{tikzpicture}",
+      "\\caption{\\(C _{4}\\)}"
+    ],
+    "prefix": "gc4"
+  },
+  "int": { "body": "\\int $1\\,$0", "prefix": "int" },
+  "begin": { "body": ["\\begin{$1}", "\t$0", "\\end{$1}"], "prefix": "begin" },
+  "it": { "body": "\\textit{$1}$0", "prefix": "it" },
+  "ln": { "body": "\\ln|$1|$0", "prefix": "ln" },
+  "subs": { "body": "\\fakesubsection{$1}$0", "prefix": "subs" },
+  "ao": { "body": "above of=$0", "prefix": "ao" },
+  "dydx": { "body": "\\frac{dy}{dx}$0", "prefix": "dydx" },
+  "dm": { "body": ["\\[", "\t$1", "\\]", "$0"], "prefix": "dm" },
+  "nk": { "body": "\\binom{$1}{$2}$0", "prefix": "nk" },
+  "atan": { "body": "\\arctan($1)$0", "prefix": "atan" },
+  "graph": {
+    "body": [
+      "\\begin{tikzpicture}[",
+      "\tnode distance = {$1mm},",
+      "\tthick,",
+      "\tmain/.style = {draw, circle}",
+      "]",
+      "\t$2",
+      "\\end{tikzpicture}$0"
+    ],
+    "prefix": "graph"
+  },
+  "fig": {
+    "body": ["\\begin{figure}[htbp]", "\t$1", "\\end{figure}$0"],
+    "prefix": "fig"
+  },
+  "ul": {
+    "body": [
+      "\\begin{enumerate}",
+      "\t\\item[\\(\\bullet\\)]\t",
+      "\t\t$1",
+      "\\end{enumerate}",
+      "$0"
+    ],
+    "prefix": "ul"
+  },
+  "sub": { "body": "_{$1}$0", "prefix": "sub" },
+  "img": { "body": "\\includegraphics[scale=$1]{$2}$0", "prefix": "img" },
+  "splitp": {
+    "body": ["% SPLIT PROBLEM $1 START", "$2", "% SPLIT PROBLEM $1 END"],
+    "prefix": "splitp"
+  },
+  "gp3": {
+    "body": [
+      "\\begin{tikzpicture}[",
+      "\tnode distance = {15mm},",
+      "\tthick,",
+      "\tmain/.style = {draw, circle}",
+      "]",
+      "\t\\node[main] (1) [fill=black] {};",
+      "\t\\node[main] (2) [fill=black,right of=1] {};",
+      "\t\\node[main] (3) [fill=black,right of=2] {};",
+      "\t\\draw (1) -- (2);",
+      "\t\\draw (2) -- (3);",
+      "\\end{tikzpicture}",
+      "\\caption{\\(P _{3}\\)}"
+    ],
+    "prefix": "gp3"
+  },
+  "alo": { "body": "above left of=$0", "prefix": "alo" },
+  "bf": { "body": "\\textbf{$1}$0", "prefix": "bf" },
+  "blo": { "body": "below left of=$0", "prefix": "blo" },
+  "sec": { "body": "\\sec($1)$0", "prefix": "sec" },
+  "ro": { "body": "right of=$0", "prefix": "ro" },
+  "draws": { "body": "\\draw ($1) -- ($2)$0;", "prefix": "draws" },
+  "cr": { "body": "^3$0", "prefix": "cr" },
+  "mcl": { "body": "\\mathcal{$1}$0", "prefix": "mcl" },
+  "cot": { "body": "\\cot($1)$0", "prefix": "cot" },
+  "mpage": {
+    "body": [
+      "\\begin{minipage}{$1\\textwidth}",
+      "\t\\centering",
+      "\t$2",
+      "\\end{minipage}$0"
+    ],
+    "prefix": "mpage"
+  },
+  "sum": { "body": "\\sum_{$1}^{$2}$0", "prefix": "sum" },
+  "line": { "body": ["\\rule{\\textwidth}{0.4pt}", "$0"], "prefix": "line" },
+  "splits": {
+    "body": ["% SPLIT SOLUTION $1 START", "$2", "% SPLIT SOLUTION $1 END"],
+    "prefix": "splits"
+  },
+  "xez": { "body": "$1 \\in \\mathbb{Z}$0", "prefix": "xez" },
+  "item": { "body": ["\\item[$1]", "\t$0"], "prefix": "item" }
+}
+
