@@ -1,4 +1,4 @@
-# deltavim
+# Config
 
 Simple configuration for Neovim that takes advantage of the [Lazy Plugin Manager](https://github.com/folke/lazy.nvim). 
 
