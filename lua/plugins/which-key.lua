@@ -81,8 +81,9 @@ function M.config()
 		{ "<F5>", "<cmd>NvimTreeToggle<CR>", desc = "Toggle tree view" },
 		{ "<F9>", " <cmd>RunCode<CR>", desc = "Run code" },
 		{ "<F10>", " <cmd>RunProject<CR>", desc = "Run project" },
-		{ "<leader>]", "<cmd>BufferLineCycleNext<CR>", desc = "Move to the next tab" },
-		{ "<leader>[", "<cmd>BufferLineCyclePrev<CR>", desc = "Move the the previous tab" },
+		{ "]", "<cmd>BufferLineCycleNext<CR>", desc = "Move to the next tab" },
+		{ "[", "<cmd>BufferLineCyclePrev<CR>", desc = "Move the the previous tab" },
+		{ "<C-BS>", "<cmd>dw<CR>", desc = "Deletes previous year." },
 		{ "<leader>p", "<cmd>PasteImage<CR>", desc = "Paste image from system clipboard."},
 
 		{ "<leader>c", "<cmd>lua close_focus_buffer()<CR>", desc = "Close buffer" },
